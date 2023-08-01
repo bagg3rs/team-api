@@ -7,7 +7,10 @@
 What is a team api and how can a team api be part of everyday work?
 
 - [ ] Define what is required for a team api
-- [ ] Create a GitHub pages api
-- [ ] Where can you host an api for a who organisation?
+- [ ] Create team template example and publish on github pages
+- [ ] Create an issue template form
+- [ ] Create GitHub Action to create PR from issue
+- [ ] ....
+- [ ] team synergy?
 
 ![image](https://github.com/bagg3rs/team-api/assets/20583399/c5b57e71-e797-427f-b4f9-6f2c6f3f99a7)
