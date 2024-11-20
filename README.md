@@ -15,7 +15,38 @@ A **Team API** is a document that acts as the "interface" for your team, similar
 3. **Interfaces**: How others can interact with the team and what they can expect.
 4. **Expectations**: Dependencies and support needed from others to operate effectively.
 
-### 🛠 Why You Need a Team API
+### 📈 Visualising a Team API
+
+Below is a diagram illustrating the key components of a Team API:
+
+![Team API Diagram](./images/team-api.excalidraw.png)
+
+This visual representation highlights the flow of communication, collaboration, and dependencies within a Team API. It reinforces the concept of a structured interface between the team and its stakeholders.
+
+---
+
+## 🌐 Example Team API Site
+
+Check out a **live example of a Team API**:  
+👉 [Team API Example Site](https://bagg3rs.github.io/team-api/)
+
+This site uses **Swagger** to present a Team API in a structured and interactive format. It is deployed as a static site, powered by **GitHub Actions**, making it easy to automate updates and ensure the documentation stays current.
+
+### Benefits of This Approach:
+- **Interactive Format**: Swagger provides a dynamic and user-friendly interface for exploring the Team API.
+- **Version Control**: Hosted on GitHub, ensuring all changes are tracked and managed collaboratively.
+- **Automation**: Utilises GitHub Actions to build and deploy the site automatically, ensuring minimal manual overhead.
+
+### How It Works:
+1. **Swagger Specification**: The Team API is defined using an OpenAPI-compliant Swagger spec.
+2. **GitHub Actions Workflow**:
+   - Automatically triggers builds when changes are committed to the repository.
+   - Deploys the static site to GitHub Pages, making it accessible to everyone in the organisation.
+3. **Static Site Hosting**: The site is hosted on GitHub Pages for fast, reliable access.
+
+---
+
+## 🛠 Why You Need a Team API
 
 - **📢 Clear Communication**: Articulates your team's role and responsibilities for internal and external audiences.
 - **📏 Defined Boundaries**: Prevents scope creep by outlining what the team is (and isn’t) responsible for.
@@ -75,16 +106,11 @@ To ensure your Team API remains a living, practical tool:
 
 ---
 
-## 🌟 Benefits of a Team API
-
-- **For Teams**: Builds autonomy, clarifies priorities, and reduces unplanned work.
-- **For Organisations**: Enhances cross-team alignment, fosters trust, and minimises delays caused by miscommunication.
-
----
-
 ## 🎓 Resources & Acknowledgements
 
 This framework is inspired by the **[Team API Template](https://github.com/TeamTopologies/Team-API-template#readme)** by Team Topologies. Explore their work to learn more about team dynamics and modern organisational design.
+
+For a live example of a Swagger-based Team API site, visit 👉 [https://bagg3rs.github.io/team-api/](https://bagg3rs.github.io/team-api/).
 
 ---
 
