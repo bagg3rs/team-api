@@ -202,21 +202,21 @@
 
     <div class="container">
       <!-- Quick Stats -->
-      <div class="stats">
+      <div class="stats" id="stats-container">
         <div class="stat-card">
-          <span class="stat-value">99.9%</span>
+          <span class="stat-value" id="stat-uptime">99.9%</span>
           <span class="stat-label">Platform Uptime</span>
         </div>
         <div class="stat-card">
-          <span class="stat-value">50+</span>
+          <span class="stat-value" id="stat-deploys">...</span>
           <span class="stat-label">Deploys/Day</span>
         </div>
         <div class="stat-card">
-          <span class="stat-value">&lt; 15min</span>
+          <span class="stat-value" id="stat-mttr">...</span>
           <span class="stat-label">Mean Time to Deploy</span>
         </div>
         <div class="stat-card">
-          <span class="stat-value">NPS 42</span>
+          <span class="stat-value" id="stat-nps">NPS 42</span>
           <span class="stat-label">Developer Satisfaction</span>
         </div>
       </div>
@@ -305,6 +305,51 @@
 
     <!-- Swagger UI -->
     <div id="swagger-ui"></div>
+    
+    <script>
+      // Load live stats from stats.json
+      fetch('stats.json')
+        .then(response => response.json())
+        .then(data => {
+          const metrics = data.metrics;
+          
+          // Update stat values
+          document.getElementById('stat-uptime').textContent = metrics.uptime;
+          document.getElementById('stat-deploys').textContent = metrics.deploys_per_day;
+          document.getElementById('stat-mttr').textContent = metrics.mean_time_to_deploy;
+          document.getElementById('stat-nps').textContent = `NPS ${metrics.nps}`;
+          
+          // Add last updated timestamp
+          const lastUpdated = new Date(data.generated_at);
+          const timeAgo = getTimeAgo(lastUpdated);
+          const statsContainer = document.getElementById('stats-container');
+          const updateBadge = document.createElement('div');
+          updateBadge.style.textAlign = 'center';
+          updateBadge.style.marginTop = '1rem';
+          updateBadge.style.fontSize = '0.75rem';
+          updateBadge.style.color = '#718096';
+          updateBadge.textContent = `📊 Stats updated ${timeAgo}`;
+          statsContainer.parentNode.insertBefore(updateBadge, statsContainer.nextSibling);
+        })
+        .catch(error => {
+          console.warn('Could not load live stats, using defaults:', error);
+          // Fallback to hardcoded values (already in place)
+          document.getElementById('stat-deploys').textContent = '50+';
+          document.getElementById('stat-mttr').textContent = '< 15min';
+        });
+      
+      function getTimeAgo(date) {
+        const seconds = Math.floor((new Date() - date) / 1000);
+        if (seconds < 60) return 'just now';
+        const minutes = Math.floor(seconds / 60);
+        if (minutes < 60) return `${minutes}m ago`;
+        const hours = Math.floor(minutes / 60);
+        if (hours < 24) return `${hours}h ago`;
+        const days = Math.floor(hours / 24);
+        return `${days}d ago`;
+      }
+    </script>
+    
     <script src="dist/swagger-ui-bundle.js" charset="UTF-8"> </script>
     <script src="dist/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
     <script src="dist/swagger-initializer.js" charset="UTF-8"> </script>
