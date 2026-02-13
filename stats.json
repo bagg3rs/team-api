@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-02-13T20:20:00Z",
+  "generated_at": "2026-02-13T22:21:08Z",
   "metrics": {
     "uptime": "99.9%",
     "deploys_per_day": 0,
-    "mean_time_to_deploy": "N/A",
-    "success_rate": "100%",
-    "prs_merged_30d": 0,
+    "mean_time_to_deploy": "543h",
+    "success_rate": "71.4%",
+    "prs_merged_30d": 5,
     "active_contributors": 1,
     "nps": 42
   },
-  "note": "Initial placeholder - will be updated by GitHub Action after first run"
+  "note": "Some metrics are GitHub repo stats, others (uptime, NPS) are example values"
 }
