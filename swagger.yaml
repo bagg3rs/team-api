@@ -41,15 +41,22 @@ paths:
                 properties:
                   mission:
                     type: string
-                    example: "Ensuring reliability and scalability of customer-facing platforms."
+                    example: "Enable product teams to ship features safely and rapidly through self-service platform capabilities."
+                  team_type:
+                    type: string
+                    example: "Platform (Team Topologies)"
+                    description: "Stream-aligned, Platform, Enabling, or Complicated-subsystem"
                   capabilities:
                     type: array
                     items:
                       type: string
                     example:
-                      - "Automated CI/CD pipelines"
-                      - "Platform observability tools"
-                      - "System performance optimisation"
+                      - "Self-service CI/CD pipelines (GitHub Actions, GitLab CI)"
+                      - "Container orchestration (Kubernetes, ECS)"
+                      - "Infrastructure as Code (Terraform, CloudFormation)"
+                      - "Platform observability (Prometheus, Grafana, CloudWatch)"
+                      - "Security scanning & compliance automation"
+                      - "Developer environments & tooling"
 
   /team/interfaces:
     get:
@@ -68,13 +75,33 @@ paths:
                   communication_channels:
                     type: array
                     items:
-                      type: string
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                        value:
+                          type: string
                     example:
-                      - "Slack: #team-platform"
-                      - "Email: team@example.com"
+                      - type: "Slack"
+                        value: "#platform-team (general queries), #platform-incidents (urgent)"
+                      - type: "Email"
+                        value: "platform-team@company.com"
+                      - type: "Office Hours"
+                        value: "Tuesdays 2-3pm GMT - drop-in support"
+                      - type: "Documentation"
+                        value: "https://docs.platform.company.com"
                   collaboration_process:
                     type: string
-                    example: "Submit requests via Jira board with detailed requirements."
+                    example: "For new platform features or integrations: create a GitHub issue with our template. For incidents: ping #platform-incidents. For general questions: #platform-team or office hours."
+                  response_times:
+                    type: object
+                    properties:
+                      urgent:
+                        type: string
+                        example: "< 1 hour during business hours"
+                      standard:
+                        type: string
+                        example: "< 2 business days"
 
   /team/expectations:
     get:
@@ -93,13 +120,34 @@ paths:
                   dependencies:
                     type: array
                     items:
-                      type: string
+                      type: object
+                      properties:
+                        team:
+                          type: string
+                        what:
+                          type: string
                     example:
-                      - "IT Ops team for network configurations"
-                      - "Product team for prioritisation guidance"
-                  commitments:
+                      - team: "Security team"
+                        what: "Security policy reviews for new services (2-day SLA)"
+                      - team: "Cloud Ops"
+                        what: "AWS account provisioning and IAM roles"
+                      - team: "Product teams"
+                        what: "Clear requirements and use cases for platform features"
+                  what_we_provide:
                     type: string
-                    example: "Resolving high-priority incidents within 2 hours with necessary details provided."
+                    example: "Self-service platform capabilities that reduce cognitive load on product teams. We handle infrastructure complexity so you can focus on product."
+                  commitments:
+                    type: object
+                    properties:
+                      uptime:
+                        type: string
+                        example: "99.9% uptime for core platform services"
+                      support:
+                        type: string
+                        example: "Critical incidents: < 1 hour response. Standard requests: 2 business days"
+                      documentation:
+                        type: string
+                        example: "Maintain up-to-date runbooks and onboarding guides"
 
   /team/metrics:
     get:
@@ -118,17 +166,32 @@ paths:
                   kpis:
                     type: array
                     items:
-                      type: string
+                      type: object
+                      properties:
+                        metric:
+                          type: string
+                        target:
+                          type: string
                     example:
-                      - "99.95% uptime for core systems"
-                      - "Deployment pipeline success rates >95%"
+                      - metric: "Platform uptime"
+                        target: "99.9%"
+                      - metric: "Mean time to deploy (MTTR)"
+                        target: "< 15 minutes"
+                      - metric: "Deployment frequency"
+                        target: "> 50 deploys/day across all teams"
+                      - metric: "Lead time for platform changes"
+                        target: "< 1 week"
+                      - metric: "Developer satisfaction (NPS)"
+                        target: "> 40"
                   feedback_mechanisms:
                     type: array
                     items:
                       type: string
                     example:
-                      - "Quarterly stakeholder surveys"
-                      - "Retrospectives for major collaborations"
+                      - "Quarterly developer satisfaction survey"
+                      - "Monthly platform retrospectives with product team representatives"
+                      - "Anonymous feedback form (always open)"
+                      - "Incident post-mortems shared publicly"
 
 components:
   schemas:
