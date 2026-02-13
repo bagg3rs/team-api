@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-02-13T20:20:00Z",
+  "metrics": {
+    "uptime": "99.9%",
+    "deploys_per_day": 0,
+    "mean_time_to_deploy": "N/A",
+    "success_rate": "100%",
+    "prs_merged_30d": 0,
+    "active_contributors": 1,
+    "nps": 42
+  },
+  "note": "Initial placeholder - will be updated by GitHub Action after first run"
+}
