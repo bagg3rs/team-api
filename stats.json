@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-02-15T04:44:17Z",
+  "generated_at": "2026-02-15T05:30:53Z",
   "metrics": {
     "uptime": "99.9%",
     "deploys_per_day": 9,
     "mean_time_to_deploy": "543h",
-    "success_rate": "95.4%",
+    "success_rate": "95.5%",
     "prs_merged_30d": 5,
     "active_contributors": 2,
     "nps": 42
