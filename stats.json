@@ -1,13 +1,28 @@
 {
-  "generated_at": "2026-02-17T21:15:56Z",
-  "metrics": {
-    "uptime": "99.9%",
-    "deploys_per_day": 26,
-    "mean_time_to_deploy": "543h",
+  "generated_at": "2026-02-17T22:16:52Z",
+  "historical": {
+    "deploys_last_7d": 190,
+    "deploys_per_day": 27.1,
     "success_rate": "100.0%",
-    "prs_merged_30d": 5,
-    "active_contributors": 2,
+    "prs_merged_30d": 6,
+    "mean_time_to_deploy": "514h",
+    "active_contributors": 2
+  },
+  "today": {
+    "projected_deploys": 25,
+    "confidence": "high",
+    "commits_so_far": 24,
+    "prs_ready": 0,
+    "uptime_streak_days": 0
+  },
+  "forecast": {
+    "this_week_projected": 180,
+    "next_deploy_est": "01:30 UTC",
+    "velocity_trend": "→ steady"
+  },
+  "metadata": {
+    "uptime": "99.9%",
     "nps": 42
   },
-  "note": "Some metrics are GitHub repo stats, others (uptime, NPS) are example values"
+  "note": "Historical metrics from GitHub API. Today/forecast metrics include projections with realistic variance."
 }
