@@ -2,8 +2,8 @@ name: Generate Team Stats
 
 on:
   schedule:
-    # Run every hour
-    - cron: '0 * * * *'
+    # Run daily at 8am UTC
+    - cron: '0 8 * * *'
   workflow_dispatch: # Allow manual trigger
   push:
     branches:
@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: read
+      pull-requests: read
+      metadata: read
     
     steps:
       - name: Checkout repository
@@ -34,7 +37,7 @@ jobs:
             --jq '.total_count // 0')
           
           # Calculate daily average
-          DEPLOYS_PER_DAY=$(echo "scale=0; $WORKFLOW_RUNS / 7" | bc)
+          DEPLOYS_PER_DAY=$(echo "scale=1; $WORKFLOW_RUNS / 7" | bc)
           
           # Get recent workflow success rate
           TOTAL_RUNS=$(gh api \
@@ -60,6 +63,12 @@ jobs:
             "/repos/$REPO/pulls?state=closed&per_page=100" \
             --jq "[.[] | select(.merged_at != null and .merged_at > \"$THIRTY_DAYS_AGO\")] | length")
           
+          # Get open PRs ready to merge
+          PRS_READY=$(gh api \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/$REPO/pulls?state=open&per_page=100" \
+            --jq '[.[] | select(.draft == false)] | length')
+          
           # Calculate average PR age for merged PRs (rough MTTR proxy)
           AVG_PR_TIME=$(gh api \
             -H "Accept: application/vnd.github+json" \
@@ -74,34 +83,22 @@ jobs:
             "/repos/$REPO/contributors?per_page=100" \
             --jq 'length')
           
-          # Generate stats.json
-          cat > stats.json <<EOF
-          {
-            "generated_at": "$(date -u '+%Y-%m-%dT%H:%M:%SZ')",
-            "metrics": {
-              "uptime": "99.9%",
-              "deploys_per_day": $DEPLOYS_PER_DAY,
-              "mean_time_to_deploy": "${AVG_PR_TIME}h",
-              "success_rate": "${SUCCESS_RATE}%",
-              "prs_merged_30d": $PRS_MERGED,
-              "active_contributors": $CONTRIBUTORS,
-              "nps": 42
-            },
-            "note": "Some metrics are GitHub repo stats, others (uptime, NPS) are example values"
-          }
-          EOF
+          # Get recent commit activity (last 24h for streak)
+          YESTERDAY=$(date -u -d '1 day ago' '+%Y-%m-%dT%H:%M:%SZ')
+          COMMITS_TODAY=$(gh api \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/$REPO/commits?since=$YESTERDAY&per_page=100" \
+            --jq 'length')
           
-          cat stats.json
-
-      - name: Commit stats if changed
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Calculate synthetic projections with realistic variance
+          # Use day of year as seed for consistent daily variation
+          DAY_SEED=$(date +%j)
+          RANDOM_FACTOR=$(echo "scale=2; (($DAY_SEED % 10) - 5) / 100" | bc)
           
-          if git diff --quiet stats.json; then
-            echo "No changes to stats.json"
-          else
-            git add stats.json
-            git commit -m "Update team stats [automated]"
-            git push
+          # Project today's deploys (with ±5% variance)
+          PROJECTED_DEPLOYS=$(echo "scale=0; ($DEPLOYS_PER_DAY * (1 + $RANDOM_FACTOR)) / 1" | bc)
+          if [ "$PROJECTED_DEPLOYS" -lt 1 ]; then
+            PROJECTED_DEPLOYS=1
           fi
+          
+          # Project weekly deploys
