@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-02-26T08:11:14Z",
+  "generated_at": "2026-02-27T08:09:35Z",
   "historical": {
-    "deploys_last_7d": 12,
-    "deploys_per_day": 1.7,
+    "deploys_last_7d": 14,
+    "deploys_per_day": 2.0,
     "success_rate": "100.0%",
     "prs_merged_30d": 6,
     "mean_time_to_deploy": "514h",
@@ -13,12 +13,12 @@
     "confidence": "medium",
     "commits_so_far": 1,
     "prs_ready": 0,
-    "uptime_streak_days": 8
+    "uptime_streak_days": 9
   },
   "forecast": {
-    "this_week_projected": 11,
+    "this_week_projected": 13,
     "next_deploy_est": "11:30 UTC",
-    "velocity_trend": "↓ 93%"
+    "velocity_trend": "↓ 92%"
   },
   "metadata": {
     "uptime": "99.9%",
