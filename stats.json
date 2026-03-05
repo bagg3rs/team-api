@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-04T08:06:17Z",
+  "generated_at": "2026-03-05T08:07:30Z",
   "historical": {
     "deploys_last_7d": 14,
     "deploys_per_day": 2.0,
@@ -10,10 +10,10 @@
   },
   "today": {
     "projected_deploys": 1,
-    "confidence": "medium",
-    "commits_so_far": 1,
+    "confidence": "low",
+    "commits_so_far": 0,
     "prs_ready": 0,
-    "uptime_streak_days": 14
+    "uptime_streak_days": 15
   },
   "forecast": {
     "this_week_projected": 13,
