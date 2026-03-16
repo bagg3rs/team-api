@@ -1,6 +1,17 @@
 # Team API: Enhancing Team Clarity and Collaboration
 
+[![Last Commit](https://img.shields.io/github/last-commit/bagg3rs/team-api?style=flat-square)](https://github.com/bagg3rs/team-api/commits)
+[![Stars](https://img.shields.io/github/stars/bagg3rs/team-api?style=flat-square)](https://github.com/bagg3rs/team-api/stargazers)
+[![Issues](https://img.shields.io/github/issues/bagg3rs/team-api?style=flat-square)](https://github.com/bagg3rs/team-api/issues)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen?style=flat-square)](https://bagg3rs.github.io/team-api/)
+
 Defining a **Team API** provides a shared understanding of a team's purpose, responsibilities, and ways of working. It serves as a "contract" between the team and the broader organisation, enabling seamless collaboration, reducing misunderstandings, and aligning efforts effectively.
+
+This repository offers a framework for creating your team's **Team API** and guidance on embedding it into everyday operations.
+
+---
+
 
 This repository offers a framework for creating your team's **Team API** and guidance on embedding it into everyday operations.
 
