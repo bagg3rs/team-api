@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-03-15T08:07:04Z",
+  "generated_at": "2026-03-16T08:18:44Z",
   "historical": {
     "deploys_last_7d": 12,
     "deploys_per_day": 1.7,
     "success_rate": "100.0%",
-    "prs_merged_30d": 6,
+    "prs_merged_30d": 1,
     "mean_time_to_deploy": "514h",
     "active_contributors": 2
   },
@@ -13,7 +13,7 @@
     "confidence": "low",
     "commits_so_far": 0,
     "prs_ready": 0,
-    "uptime_streak_days": 25
+    "uptime_streak_days": 26
   },
   "forecast": {
     "this_week_projected": 11,
