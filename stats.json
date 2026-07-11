@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-10T10:42:52Z",
+  "generated_at": "2026-07-11T09:15:42Z",
   "historical": {
-    "deploys_last_7d": 11,
-    "deploys_per_day": 1.5,
+    "deploys_last_7d": 13,
+    "deploys_per_day": 1.8,
     "success_rate": "100.0%",
     "prs_merged_30d": 0,
     "mean_time_to_deploy": "514h",
@@ -16,8 +16,8 @@
     "uptime_streak_days": 6
   },
   "forecast": {
-    "this_week_projected": 9,
-    "next_deploy_est": "13:30 UTC",
+    "this_week_projected": 11,
+    "next_deploy_est": "12:30 UTC",
     "velocity_trend": "↓ 97%"
   },
   "metadata": {
