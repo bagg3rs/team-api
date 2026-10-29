@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T14:39:46Z",
+  "generated_at": "2026-10-29T14:44:07Z",
   "historical": {
     "deploys_last_7d": 12,
     "deploys_per_day": 1.7,
@@ -13,7 +13,7 @@
     "confidence": "low",
     "commits_so_far": 0,
     "prs_ready": 0,
-    "uptime_streak_days": 104
+    "uptime_streak_days": 105
   },
   "forecast": {
     "this_week_projected": 11,
